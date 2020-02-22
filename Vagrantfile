@@ -30,6 +30,7 @@ Vagrant.configure("2") do |config|
             yum install vim mailx -y
 			(crontab -l | 2>/dev/null; echo "#05 * * * * /vagrant/script/logchecker.sh 2>/var/log/script-error.log"; echo "#*/58 * * * * /vagrant/script/emul_log_writing.sh 2>/var/log/script-error.log"; echo "*/3 * * * * /vagrant/script/logchecker.sh 2>/var/log/script-error.log"; echo "*/2 * * * * /vagrant/script/emul_log_writing.sh 2>/var/log/script-error.log") | crontab -
 			systemctl reload crond
+          timedatectl set-timezone Europe/Moscow
           SHELL
 
       end
