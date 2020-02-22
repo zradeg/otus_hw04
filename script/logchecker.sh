@@ -46,8 +46,7 @@ check_actual_accesslog() {
 	fi
 }
 tail_from_last_line() {
-	TEXT=$(sed "${LAST_LINE},$ p" ${LOGFILE})
-	#READ_ITER=$(sed "${LAST_LINE},$ p" ${LOGFILE})
+	READ_ITER=$(sed "${LAST_LINE},$ p" ${LOGFILE})
 	echo ${READ_ITER}
 }
 
@@ -101,7 +100,7 @@ send_letter(){
 
 check_PID
 put_PID
-#TEXT=$(tail_from_last_line)
+TEXT=$(tail_from_last_line)
 make_letter
 send_letter
 save_last_line
